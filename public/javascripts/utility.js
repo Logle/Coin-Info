@@ -1,7 +1,21 @@
 $(document).ready(function(){
 	
 	$.get('/bitcoinprice', function(price){
-		$('#priceTick-div').append('<div><strong>last price '+ price.last.toString()+' usd' +'</strong></div>');
+		// console.log(price);
+		if (price.last > price.low){
+			$('#priceTick-div').append("<div><strong>last price " + price.last.toString()+ " usd </strong><span id='burning' class='glyphicon glyphicon-fire'></span></div>");
+		} else {
+			$('#priceTick-div').append("<div><strong>last price " + price.last.toString()+ " usd </strong><span class='glyphicon glyphicon-cloud'></span></div>");
+		}
+		var burningTime = 0;
+		var tickerInterval = window.setInterval(function(){
+			 if (burningTime <20) { 
+			 	  $('#burning').toggleClass('glyphicon glyphicon-fire');  burningTime++; 
+			 } else {
+			 		window.clearInterval(tickerInterval);
+			 }
+		}, 500);	
+	
 	})
 
 	$('#searchBox').typeahead({
@@ -18,5 +32,5 @@ $(document).ready(function(){
   		});
   	}
 	});
-	
+
 });
