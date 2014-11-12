@@ -1,4 +1,4 @@
 forumReader-scraper_bot
 =======================
 
-locate and store contents.
+locate, store contents and re-package them in a new front-end
