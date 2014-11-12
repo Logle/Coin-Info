@@ -24,6 +24,9 @@ body {
 .postview-onepost{
 	text-align: justify;
 }
+.shareHeart{
+  width: 20px;
+}
 
 td{
 	margin: 3px;
