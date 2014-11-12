@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	<div id='container'>
+		<h3>Articles by {{author}}</h3>
+		{% for post in posts %}
+			<div>
+				<a href="/post/{{post.title}}">{{post.title}}</a>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

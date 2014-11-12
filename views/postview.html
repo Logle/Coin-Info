@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	<div id='container-postview'>
+		<h3> {{post.title}}</h3>
+		<div class='authorbox'>
+			<a href="/author/{{post.author}}"> 
+				<strong> Author: {{post.author}} </strong> 
+			</a>
+			<span>{{post.created.toString()}}</span>
+		</div>
+		
+		<div class ='postview-onepost'>
+			{{post.content|replace('\n','<br>','g')|safe}}
+		</div>
+	
+	</div>
+{% endblock %}

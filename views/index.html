@@ -1,6 +1,53 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <h1>{{title}}</h1>
-    <p>Welcome to {{title}}</p>
+
+    <div class='post-type col-md-10'>
+	    <button class="btn btn-primary btn-md">
+	       <a href="/"> Most recent	</a>
+	     </button>
+	    <button type="button" class="btn btn-default btn-md"> 
+	    	<a href="/Trending"> Trending </a>
+	    </button> 
+	    <button type="button" class="btn btn-default btn-md">
+	    	<a href="/bestposts"> Best </a>
+	    </button>
+	  </div>  
+
+    <div id='container' >
+	    <table>
+	    	<thead>
+	    		<tr>
+	    			<th style="width:30px">#</th>
+	    			<th style="width:150px">Image</th>
+	    			<th style="width:400px">Title</th>
+	    			<th style="width:150px">Author</th>
+	    			<th style="width:150px">Date</th>
+	    			<th style="width:150px">Source</th>
+	    			<th style="width:50px">Share</th>
+	    			<th style="width:50px">Offline reading</th>
+	    		<tr>
+				</thead>
+	    	<tbody>
+	    			{% for post in posts %}
+	    			<tr>
+	    				<td></td>
+	    				<td><img class='indexImage' src={{post.image}}></td>
+	    				<td>
+	    					<a href="/post/{{post.title}}">{{post.title}}</a>
+	    				</td>
+	    				<td>
+	    					<a href="/author/{{post.author}}">{{post.author}}</a>
+	    				</td>
+	    				<td>{{post.created.toString()}}</td>
+	    				<td> <a href={{post.sourceURL}}> {{post.sourceString}} </a> </td>
+	    				<td>{{post.likeFB}}</td>
+	    				<td>
+	    					
+	    				</td>
+	    			</tr>	
+	    			{% endfor %}
+	    	</tbody>
+	    </table>
+	   </div>
 {% endblock %}
