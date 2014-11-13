@@ -7,14 +7,14 @@ $(document).ready(function(){
 		} else {
 			$('#priceTick-div').append("<div><strong>last price " + price.last.toString()+ " usd </strong><span class='glyphicon glyphicon-cloud'></span></div>");
 		}
-		var burningTime = 0;
-		var tickerInterval = window.setInterval(function(){
-			 if (burningTime <20) { 
-			 	  $('#burning').toggleClass('glyphicon glyphicon-fire');  burningTime++; 
-			 } else {
-			 		window.clearInterval(tickerInterval);
-			 }
-		}, 500);	
+		// var burningTime = 0;
+		// var tickerInterval = window.setInterval(function(){
+		// 	 if (burningTime <20) { 
+		// 	 	  $('#burning').toggleClass('glyphicon glyphicon-fire');  burningTime++; 
+		// 	 } else {
+		// 	 		window.clearInterval(tickerInterval);
+		// 	 }
+		// }, 500);	
 	
 	})
 

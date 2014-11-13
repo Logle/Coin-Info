@@ -120,7 +120,7 @@ function importData(){
 var scraperBCmagazine = function(){
 	console.log('scraperBC working...');
 	// getDataHeader(3);
-	importData();
+	//importData();
 };
 
 module.exports = scraperBCmagazine;
