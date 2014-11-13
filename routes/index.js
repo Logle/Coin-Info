@@ -14,7 +14,10 @@ function cleanData(posts){
 		} else if (postsOK[post].source === 2){
 			postsOK[post].sourceString ='Coin Desk';
 	 		postsOK[post].sourceURL ='http://coindesk.com/';
-		};
+		} else if (postsOK[post].source === 3){
+			postsOK[post].sourceString ='Bitcoin Magazine';
+	 		postsOK[post].sourceURL ='http://bitcoinmagazine.com/';
+		}
 	// console.log(postsOK[post].sourceString, postsOK[post].sourceURL)
 	}
 	return postsOK;

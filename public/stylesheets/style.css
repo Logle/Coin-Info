@@ -18,6 +18,7 @@ body {
 }
 .indexImage{
 	max-height: 80px;
+  max-width: 100px;
 	min-height: auto;
 }
 
@@ -41,7 +42,7 @@ h3{
 }
 
 #searchBox{      
-    width: 800px;  
+   
 }
 .authorbox{
   margin: 10px;

@@ -4,6 +4,7 @@ var app = require('../app');
 var scraperAlpha = require('../scraperAlpha');
 var scraperBeta = require('../scraperBeta');
 var scraperCenturion = require('../scraperCenturion');
+var scraperBCmagazine = require('../scraperBCmagazine');
 
 app.set('port', process.env.PORT || 3000);
 
@@ -15,6 +16,7 @@ var server = app.listen(app.get('port'), function() {
 scraperAlpha();
 scraperBeta();
 scraperCenturion();
+scraperBCmagazine();
 
 
 
