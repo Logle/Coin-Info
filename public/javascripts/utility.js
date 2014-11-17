@@ -6,7 +6,7 @@ $(document).ready(function(){
 			$('#priceTick-div').append("<div><strong>last price " + price.last.toString()+ " usd </strong><span id='burning' class='glyphicon glyphicon-fire'></span></div>");
 		} else {
 			$('#priceTick-div').append("<div><strong>last price " + price.last.toString()+ " usd </strong><span class='glyphicon glyphicon-cloud'></span></div>");
-		}
+		};
 		// var burningTime = 0;
 		// var tickerInterval = window.setInterval(function(){
 		// 	 if (burningTime <20) { 

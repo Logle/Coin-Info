@@ -93,6 +93,7 @@ router.get('/trending', function(req, res){
 		.limit(30)
 		.exec(function(err, posts){
 			res.render('trendingview', {
+				active: 'trending',
 				posts: cleanData(posts)
 			});
 		});
