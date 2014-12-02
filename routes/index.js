@@ -48,6 +48,7 @@ router.get('/', function(req, res){
 		.limit(30)
 		.exec(function(err, posts){
 			res.render('index', {
+				active: 'most recent',
 				posts: cleanData(posts)
 			});
 		});
@@ -79,7 +80,8 @@ router.get('/bestposts', function(req, res){
 		.sort({likeFB: -1})
 		.limit(30)
 		.exec(function(err, posts){
-			res.render('bestpostview', {
+			res.render('index', {
+				active: 'best',
 				posts: cleanData(posts)
 			});
 		});
@@ -92,7 +94,7 @@ router.get('/trending', function(req, res){
 		.sort({likeFB:-1})
 		.limit(30)
 		.exec(function(err, posts){
-			res.render('trendingview', {
+			res.render('index', {
 				active: 'trending',
 				posts: cleanData(posts)
 			});

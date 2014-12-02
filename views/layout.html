@@ -3,33 +3,36 @@
   <head>
     <title></title>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/style_index.css">
+    <link rel="stylesheet" href="/stylesheets/style_postview.css">
+    <link rel="stylesheet" href="/stylesheets/style_authorview.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/bower_components/typeahead.js/dist/typeahead.bundle.min.js"> </script>
   </head>
   <body>
-    <div>
+    <div class="col-md-12">
     <!-- Logo implementation -->  
-      <div class="col-md-2">
-        <a href="/" id='site-title'>
-    	     <h1> CoinInfo</h1>
-           <div>information a search away</div>
-        </a>
-      </div>
-      <!-- serach box implementation -->
-      
-      <div class="col-md-8">
-        <form action="/searchPost" method='POST'>
-          <input id="searchBox" type="text" class="typeahead form-control" placeholder='Search an article' name='title'>
-          <input type='submit' class="btn btn-default btn-md">
-         </form> 
-      </div>
-      
-       <!-- Bitcoin price ticker implementation -->
-      <div class="col-md-2" id="priceTick-div"> 
-        <img id='priceTickImage' src='/images/bitcoin-moon.jpg'>
-      </div>
+        <div class="col-md-2">
+      	     <h1 is='side-title'><a href="/"> CoinInfo </a></h1>
+             <h4 id='side-pitch'>information a search away</h4>
+          </a>
+        </div>
+        <!-- serach box implementation -->
+        
+        <div class="col-md-8">
+          <form action="/searchPost" method='POST'>
+            <input id="searchBox" type="text" class="typeahead form-control" placeholder='Search an article' name='title'>
+            <input type='submit' class="btn btn-default btn-md">
+           </form> 
+        </div>
+        
+         <!-- Bitcoin price ticker implementation -->
+        <div class="col-md-2" id="pricetick-div"> 
+          <img id='pricetick-image' src='/images/bitcoin-moon.jpg'>
+        </div>
+
      </div> 
     {% block content %}{% endblock %}
   </body>

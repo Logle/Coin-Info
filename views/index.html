@@ -2,19 +2,19 @@
 
 {% block content %}
 
-    <div class='post-type col-md-10'>
-	    <button class="btn btn-primary btn-md">
+    <div id='post-type-container'>
+	    <button class="btn {% if (active === 'most recent') %} btn-primary {% else %} btn-default {% endif %} btn-md">
 	       <a href="/"> Most recent	</a>
 	     </button>
-	    <button type="button" class="btn btn-default btn-md"> 
+	    <button type="button" class="btn {% if (active === 'trending') %} btn-primary {% else %} btn-default {% endif %} btn-md"> 
 	    	<a href="/Trending"> Trending </a>
 	    </button> 
-	    <button type="button" class="btn btn-default btn-md">
+	    <button type="button" class="btn {% if (active === 'best') %} btn-primary {% else %} btn-default {% endif %} btn-md">
 	    	<a href="/bestposts"> Best </a>
 	    </button>
 	  </div>  
 
-    <div id='container' >
+    <div id='content-container' >
 	    <table>
 	    	<thead>
 	    		<tr>
@@ -32,7 +32,7 @@
 	    			{% for post in posts %}
 	    			<tr>
 	    				<td></td>
-	    				<td><img class='indexImage' src={{post.image}}></td>
+	    				<td><img class='index-image' src={{post.image}}></td>
 	    				<td>
 	    					<a href="/post/{{post.title}}">{{post.title}}</a>
 	    				</td>
@@ -41,7 +41,7 @@
 	    				</td>
 	    				<td>{{post.created.toString()}}</td>
 	    				<td> <a href={{post.sourceURL}}> {{post.sourceString}} </a> </td>
-	    				<td>{{post.likeFB}} <img class='shareHeart' src='/images/heart.png'> </td>
+	    				<td>{{post.likeFB}} <img class='share-heart' src='/images/heart.png'> </td>
 	    				<td>
 	    					
 	    				</td>

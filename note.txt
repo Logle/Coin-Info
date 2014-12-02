@@ -1,0 +1,15 @@
+Objectives:
+
+automate the backend content discovery proecess. Requirements:
+
+- 1 bot for one website.
+- initially the bot is started manually with the administator parameter. The bot then runs to collect relevant
+articles following the said parameter.
+- don't use external storage for header data.
+
+current difficulties: working with async process of collecting header data and then use this header data
+to go to individual page to collect the relevant information.
+
+Solution: 1. use anyc library; 2. isolate ScaperBot as a complete module with an unique global namespace using self-invoked function pattern. 3. design ScraperBot API interface.
+
+Next steps: re-write two files: ScraperAlpha to ScraperCoinTelegraph; ScraperBeta to ScraperCoinDesk; and ScraperBitcoinMagazine;
