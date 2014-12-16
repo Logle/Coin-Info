@@ -1,3 +1,23 @@
+Log: 12/16/2014
+
+Bitcoin magazine is closed. Download all Bitcoin magazine content completed.
+
+*************************************************************
+
+Log: 12/15/2014
+
+Refactor databases: idea: scraper for each site is a seperate library with similar code
+style. Public API for each library. Now it is possible to run setInterval on each library if
+the server is online 24/24
+
+Next:
+- check the codes and database once more
+- download most recent data
+- complete phase 1  Backend refactoring
+- improve front-end
+
+**************************************************************
+Log: not sure the time
 Objectives:
 
 automate the backend content discovery proecess. Requirements:

@@ -36,7 +36,7 @@ router.get('/bitcoinprice', function(req, res){
 
 router.get('/searchBox', function(req, res){
 	Post.find({$text:{$search: req.query.query}})
-		.limit(8)
+		.limit(12)
 		.exec(function(err, posts){
 			res.send(posts);
 		})
