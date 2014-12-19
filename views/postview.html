@@ -2,21 +2,19 @@
 
 {% block content %}
 
-	<div class='postview-container'>
-		
-		<div class='postview-title'>
+	<div class="postview-container col-md-8 col-md-offset-2">
+		<div class='postview-title bg-success'>
 			<h3> {{post.title}}</h3>
-			<a href="/author/{{post.author}}"> 
-				<strong> Author: {{post.author}} </strong> 
+			<a href="/author/{{post.author}}">
+				<strong> Author: {{post.author}} </strong>
 			</a>
 			<span>{{post.created.toString()}}</span>
 		<div>
-		
-		<div class='postview-onepost'>
+
+		<div class='postview-onepost bg-info'>
 			{{post.content|replace('\n','<br>','g')|safe}}
 			<br>
 			<a href={{post.url}}>{{post.url}} </a>
 		</div>
-	
 	</div>
 {% endblock %}

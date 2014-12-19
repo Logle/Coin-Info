@@ -1,3 +1,13 @@
+Log: 12/18/2014
+
+Fix some frontend: ok for now
+
+Login page (authentification)
+Saved page
+search for author
+
+************************************************************
+
 Log: 12/16/2014
 
 Bitcoin magazine is closed. Download all Bitcoin magazine content completed.

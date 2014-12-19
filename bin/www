@@ -11,9 +11,9 @@ var server = app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
 });
 
-// Scraping data - comment out this function if data mining is not needed.
+ // Scraping data - comment out this function if data mining is not needed.
 
- // scraperCoinTelegraph.init(10);
+ // scraperCoinTelegraph.init(1);
  // scraperCoinDesk.init(2);
  // scraperBitcoinMagazine.init(1);
 

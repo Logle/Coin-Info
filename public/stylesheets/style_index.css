@@ -10,13 +10,14 @@ td{
 }
 
 .share-heart{
-  width: 20px;
-} 
+  width: 30px;
+}
 .index-image{
 	max-height: 80px;
   max-width: 100px;
 	min-height: auto;
-} 
+	padding: 3px;
+}
 #post-type-container{
-	
+
 }

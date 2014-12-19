@@ -1,14 +1,6 @@
-
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-#side-pitch{
-  font-style: italic;
-}
-
-#pricetick-image{
-	max-height: 80px;
+  background-image: url('/images/bitcoin-moon.jpg');
 }
 
 /* below -- css for the search ahead functionality */
