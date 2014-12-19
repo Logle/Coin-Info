@@ -1,4 +1,4 @@
-forumReader-scraper_bot
+Information about digital currencies
 =======================
 
-locate, store contents and re-package them in a new front-end
+locate, store contents from CoinDesk, Cointelegraph, Bitcoin Magazine and re-package them in a new front-end
