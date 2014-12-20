@@ -3,6 +3,9 @@ body {
   background-image: url('/images/bitcoin-moon.jpg');
 }
 
+h1 {
+  font-style: italic;
+}
 /* below -- css for the search ahead functionality */
 
 span.twitter-typeahead .tt-dropdown-menu {

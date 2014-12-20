@@ -18,7 +18,6 @@ function cleanData(posts){
 			postsOK[post].sourceString ='Bitcoin Magazine';
 	 		postsOK[post].sourceURL ='http://bitcoinmagazine.com/';
 		}
-	// console.log(postsOK[post].sourceString, postsOK[post].sourceURL)
 	}
 	return postsOK;
 };
@@ -70,9 +69,11 @@ router.post('/searchPost', function(req, res){
 
 router.get('/author/:author', function(req, res){
 	var author = req.params.author;
-	Post.find({author: author}, function(err, posts){
-		res.render('authorView', {author: author, posts: posts});
-	});
+	Post.find({author: author})
+		.sort({created: -1})
+		.exec(function(err, posts){
+			res.render('authorView', {author: author, posts: posts});
+		});
 });
 
 router.get('/bestposts', function(req, res){

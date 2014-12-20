@@ -1,3 +1,10 @@
+Log: 12/19/2014
+
+weird issue with URL encoding in Chrome : fixed by add a filed of titleEncoded in the database.
+Some design issues fixed but my design skill sucks
+
+**********************************************************
+
 Log: 12/18/2014
 
 Fix some frontend: ok for now

@@ -97,6 +97,7 @@ var scraperCoinDesk = (function(){
 					var newPost = new models.Post({
 						'image': post.image,
 						'title': post.title,
+						'titleEncoded': encodeURIComponent(post.title),
 						'url' : post['url'],
 						'lead_text': "",
 						'author' : post.author,

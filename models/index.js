@@ -35,6 +35,7 @@ var postSchema = new Schema({
 	image: String,
 	title: String,
 	url: String,
+	titleEncoded: String,
 	lead_text: String,
 	author: String,
 	created: {type: Date, default: Date.now},
@@ -51,7 +52,7 @@ var userSchema = new Schema({
 
 Post = mongoose.model('Post', postSchema);
 User = mongoose.model('User', userSchema);
- 
+
 module.exports = {"Post": Post, "User": User};
 
 

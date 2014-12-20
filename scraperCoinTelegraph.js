@@ -97,6 +97,7 @@ var scraperCoinTelegraph = (function(){
 				var newPost = new models.Post({
 						'image': 'http://cointelegraph.com/images/393_' + post['image'],
 						'title': post['title'],
+						'titleEncoded': encodeURIComponent(post.title),
 						'url' : 'http://cointelegraph.com' + post['url'],
 						'lead_text': post['lead_text'],
 						'author' : post['author'],

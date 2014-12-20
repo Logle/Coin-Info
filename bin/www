@@ -3,7 +3,8 @@ var debug = require('debug')('scraper_bot');
 var app = require('../app');
 var scraperCoinTelegraph = require('../scraperCoinTelegraph');
 var scraperCoinDesk = require('../scraperCoinDesk');
-var scraperBitcoinMagazine = require('../scraperBitcoinMagazine')
+var scraperBitcoinMagazine = require('../scraperBitcoinMagazine');
+
 
 app.set('port', process.env.PORT || 3000);
 
@@ -16,6 +17,8 @@ var server = app.listen(app.get('port'), function() {
  // scraperCoinTelegraph.init(1);
  // scraperCoinDesk.init(2);
  // scraperBitcoinMagazine.init(1);
+
+
 
 
 
