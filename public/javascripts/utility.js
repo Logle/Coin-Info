@@ -19,4 +19,22 @@ $(document).ready(function(){
   	}
 	});
 
+	$('.savePost').click(function(){
+		var userStatus = $('.savePost').attr('data-userStatus');
+		if (userStatus != 'Login') {
+			var titleEncoded = $('.savePost').attr('data-titleEncoded');
+			$.post('/users/toggleSavePost',{ titleEncoded: titleEncoded }, function(){
+				var isSaved = $('.savePost').attr('data-isSaved');
+				console.log(isSaved);
+				if (isSaved === 'true') {
+					console.log('there');
+					$('.savePost').text('Save this').removeClass('btn-success').addClass('btn-default').attr('data-isSaved', 'false');
+				} else {
+					console.log('here');
+					$('.savePost').text('Saved').removeClass('btn-default').addClass('btn-success').attr('data-isSaved', 'true')
+				};
+			});
+		} else {};
+	});
+
 });

@@ -14,8 +14,8 @@ var server = app.listen(app.get('port'), function() {
 
  // Scraping data - comment out this function if data mining is not needed.
 
- // scraperCoinTelegraph.init(1);
- // scraperCoinDesk.init(2);
+ // scraperCoinTelegraph.init(2);
+ // scraperCoinDesk.init(4);
  // scraperBitcoinMagazine.init(1);
 
 

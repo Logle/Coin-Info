@@ -1,28 +1,5 @@
 // Data model:
 
-// Article schema:
-
-// 1. image (image - URLlink)
-// 2. title (text)
-// 3. content (text)
-// 4. author (text)
-// 5. like {
-// 	facebook:
-// 	twitter:
-// 	linked:
-// }
-// 6. created (original date)
-// 7. lead text (text)
-// 8. source (number)
-
-// Author schema:
-
-// 1. Post title
-// 2. lead text
-// 3. total like
-
-// User schema:
-
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/coin_data');
 var db = mongoose.connection;
@@ -46,8 +23,33 @@ var postSchema = new Schema({
 });
 
 var userSchema = new Schema({
-  name: String,
-  email: String
+  savedposts: [{type: Schema.Types.ObjectId, ref: 'Post'}],
+  name:  {
+      first: String,
+      last: String
+    },
+  local            : {
+      email        : String,
+      password     : String
+  },
+  facebook         : {
+      id           : String,
+      token        : String,
+      email        : String,
+      name         : String
+  },
+  twitter          : {
+      id           : String,
+      token        : String,
+      displayName  : String,
+      username     : String
+  },
+  google           : {
+      id           : String,
+      token        : String,
+      email        : String,
+      name         : String
+  }
 });
 
 Post = mongoose.model('Post', postSchema);
