@@ -8,6 +8,15 @@
 				<strong> Author: {{post.author}} </strong>
 			</a>
 			<span>{{post.created.toString()}}</span>
+			{% if isSaved %}
+				<button class='btn btn-success savePost' data-titleEncoded={{post.titleEncoded}} data-userStatus={{user}} data-isSaved={{isSaved}}>
+					Saved
+				</button>
+			{% else %}
+				<button class='btn btn-default savePost' data-titleEncoded={{post.titleEncoded}} data-userStatus={{user}} data-isSaved={{isSaved}}>
+					Save this
+				</button>
+			{% endif %}
 		<div>
 
 		<div class='postview-onepost bg-info'>

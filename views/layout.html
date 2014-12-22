@@ -21,7 +21,7 @@
              <em class='text-success' id="pricetick-div">
              </em>
         </div>
-        <!-- serach box implementation -->
+        <!-- search box implementation -->
         <div class="col-md-8">
          <br>
           <form action="/searchPost"  method='POST'>
@@ -44,11 +44,30 @@
               <a href="/bestposts"> Best </a>
             </button>
             <button type="button" class="btn {% if (active === 'saved') %} btn-success {% else %} btn-default {% endif %} btn-md">
-              <a href="#"> Saved </a>
+              <a href="/savedposts"> Saved </a>
             </button>
-            <button type="button" class="btn {% if (active === 'login') %} btn-success {% else %} btn-default {% endif %} btn-md">
-              <a href="#"> Login </a>
+
+            <button type="button" class="btn btn-default btn-md" data-toggle='modal' data-target='#loginModal'>
+               <div class='text-primary'>{{user}} </div>
             </button>
+
+            <div class="modal fade" id='loginModal' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                 <div class="modal-dialog">
+                  <div class="modal-content">
+                     <div class='modal-header'>
+                        <h4> Login to save your favorite posts. </h4>
+                     </div>
+                     <div class='modal-body'>
+                        <div> <a href="/auth/facebook"> Facebook Login </a> </div>
+                        <br>
+                        <div> <a href="/logout"> Logout </a> </div>
+                     </div>
+                     <div class='modal-footer'>
+                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                     </div>
+                  </div>  <!-- modal-content -->
+                </div>  <!-- modal-dialog   -->
+             </div>
           </div>
         </div>
     </div>
@@ -64,5 +83,5 @@
 
   <script type="text/javascript" src="/javascripts/utility.js">
   </script>
-  <script type="text/javascript" src=""></script>
+
 </html>

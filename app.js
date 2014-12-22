@@ -5,6 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var passport = require('passport');
+require('./config/passport')(passport); //passport object is passed from the server.js file to the config/passport.js file
+var session = require('express-session');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -24,6 +27,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+    secret: 'coininfo_is_great',
+    resave:false,
+    saveUninitialized: true
+})); // session secret, the salt used to encrypt the session ids which are stored in the client's browser.
+app.use(passport.initialize()); //creates our passport object
+app.use(passport.session()); // persistent login sessions
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
 app.use('/', routes);

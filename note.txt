@@ -6,6 +6,11 @@ note: "Swig is an awesome, Django/Jinja-like template engine for node.js"
 while it is possible to make a new swig post filter, the post format is inconsistent across
 the site ---> difficult to make an effective filter. (check wikistack repo for a filter example as well as Swig documentation )
 
+implement: Facebook login and user model:
+1. modal pop- with bootstrap
+2. login Facebook and return user
+3. persistence user using session
+
 ********************************************************
 
 Log: 12/19/2014
