@@ -5,7 +5,7 @@ var scraperBitcoinMagazine = (function(){
 	var request = require('request');
 	var fs = require('fs');
 	var async = require('async');
-	var models = require('./models')
+	var models = require('../models')
 	var postList = [];
 	var countTotal = 0;
 

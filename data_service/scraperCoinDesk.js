@@ -1,11 +1,11 @@
-var scraperCoinTelegraph = (function(){
+var scraperCoinDesk = (function(){
 
 	var http = require('http');
 	var cheerio = require('cheerio');
 	var request = require('request');
 	var fs = require('fs');
 	var async = require('async');
-	var models = require('./models')
+	var models = require('../models')
 	var postList = [];
 	var countTotal = 0;
 
@@ -15,30 +15,30 @@ var scraperCoinTelegraph = (function(){
 	// ***************************************************************
 
 	var collectPostList = function(n, cb_function){
-		var i;
-		var options = {
-	  	url: 'http://cointelegraph.com/rest/posts/get_page',
-	  	method: 'POST',
-	  	headers: {
-	  		'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36'
-	  	},
-	  	form: {
-	  		'page': n.toString(),
-	  		'lang': 'en'
-	  	}
-
+		var options ={
+			url: 'http://coindesk.com/page/' + n.toString(),
+			headers: {
+		  		'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36'
+		  	},
 		};
-		var callback = function(err, res, body) {
-			var ob = JSON.parse(body);
-		 	for (i=0; i< ob['posts'].length; i++){
-		 		postList.push(ob['posts'][i]);
-		 	};
 
-		 	// recursive function. if n >1, continue scraping next page
-		 	if (n>1) { collectPostList(n-1, function(){ cb_function() }) }
+		var callback = function(err, res, body){
+			var cheer = cheerio.load(body);
+			cheer('.article').each(function(i, element){
+					var post= {};
+					post.image = cheer(this).find('img').attr('src');
+					post.created = cheer(this).find('time').attr('datetime');
+					post.author = cheer(this).find('cite').text();
+					post.title = cheer(this).find('.post-info').find('a').attr('title');
+					post.url = cheer(this).find('.post-info').find('a').attr('href');
+					if (post.title != undefined) postList.push(post);
+			});
+
+			if (n>1) { collectPostList(n-1, function(){ cb_function() }) }
 		 		else cb_function();
 		};
-	 	request(options, callback);
+
+		request(options, callback);
 	};
 
 	// ************************************************************
@@ -56,7 +56,7 @@ var scraperCoinTelegraph = (function(){
 		var callback = function(err, res, body) {
 			var cheer = cheerio.load(body);
 			var postURLencoded = encodeURIComponent(postURL);
-			var content = cheer('.post-itself').text();
+			var content = cheer('.single-content').text();
 
 			var fbURL = 'https://graph.facebook.com/fql?q=SELECT+total_count+FROM+link_stat+WHERE+url%3D%22' + postURLencoded +'%22';
 			var twitURL = 'https://cdn.api.twitter.com/1/urls/count.json?url=' + postURLencoded ;
@@ -93,23 +93,23 @@ var scraperCoinTelegraph = (function(){
 
 	var importPosts = function() {
 		postList.forEach(function(post){
-			collectSinglePostInfo('http://cointelegraph.com' + post['url'], function(value){
-				var newPost = new models.Post({
-						'image': 'http://cointelegraph.com/images/393_' + post['image'],
-						'title': post['title'],
+			collectSinglePostInfo(post['url'], function(value){
+					var newPost = new models.Post({
+						'image': post.image,
+						'title': post.title,
 						'titleEncoded': encodeURIComponent(post.title),
-						'url' : 'http://cointelegraph.com' + post['url'],
-						'lead_text': post['lead_text'],
-						'author' : post['author'],
-						'created': post['created'],
-						'source'	: 1,
+						'url' : post['url'],
+						'lead_text': "",
+						'author' : post.author,
+						'created': post.created,
+						'source'	: 2,
 						'content' : value.content,
 						'likeFB'	: value.likeF,
 						'likeTw' : value.likeT
 					});
-				newPost.save();
-				countTotal ++; console.log(countTotal);
-			})
+			 	newPost.save();
+			 	countTotal ++; console.log(countTotal, post.created);
+			});
 		});
 	};
 
@@ -139,4 +139,4 @@ var scraperCoinTelegraph = (function(){
 
 }());
 
-module.exports = scraperCoinTelegraph;
+module.exports = scraperCoinDesk;
