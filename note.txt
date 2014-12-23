@@ -1,3 +1,14 @@
+Log: 12/23 use heroku: config to find mongolab URI you want to connect the app to that database.
+
+to dump data from local host mongodb:
+	cd coin-info
+	mongodump -db coin_data
+
+to import data to mongoLAB:
+mongorestore -h ds049150.mongolab.com:49150 -d heroku_app32792295 -u heroku_app32792295 -p q06dlscp9gehtvg22c16tbt3in ./dump/coin_data
+
+*****************************************************
+
 Log: 12/20/2014
 
 small improvement in readability.

@@ -1,7 +1,7 @@
 // Data model:
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/coin_data');
+mongoose.connect('mongodb://heroku_app32792295:q06dlscp9gehtvg22c16tbt3in@ds049150.mongolab.com:49150/heroku_app32792295');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
