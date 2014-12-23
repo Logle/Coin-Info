@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-var debug = require('debug')('scraper_bot');
+
+var debug = require('debug')('CoinInfo');
 var app = require('../app');
 var data_service = require('../data_service/start');
 app.set('port', process.env.PORT || 3000);

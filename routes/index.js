@@ -66,7 +66,7 @@ router.get('/post/:title', function(req, res){
 	Post.findOne({title: title}, function(err, post){
 		var isSaved = false;
 		if ((req.user != undefined)&&(req.user.savedposts.indexOf(post._id)!=-1)) { isSaved=true; }
-		res.render('../views/postView', {
+		res.render('postView', {
 			post: post,
 			user : checkUserName(req.user),
 			isSaved: isSaved
@@ -83,7 +83,7 @@ router.get('/author/:author', function(req, res){
 	Post.find({author: author})
 		.sort({created: -1})
 		.exec(function(err, posts){
-			res.render('../views/authorView', {
+			res.render('authorView', {
 				author: author,
 				posts: posts,
 				user: checkUserName(req.user)
@@ -124,7 +124,7 @@ router.get('/savedposts', function(req,res){
 		User.findOne({'facebook.id': req.user.facebook.id})
 			.populate ('savedposts')
 			.exec(function(err, user){
-				res.render('../views/savedpostview', {
+				res.render('savedpostview', {
 					posts: user.savedposts,
 					user: checkUserName(req.user)
 				});
