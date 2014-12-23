@@ -66,7 +66,7 @@ router.get('/post/:title', function(req, res){
 	Post.findOne({title: title}, function(err, post){
 		var isSaved = false;
 		if ((req.user != undefined)&&(req.user.savedposts.indexOf(post._id)!=-1)) { isSaved=true; }
-		res.render('postView', {
+		res.render('postview', {
 			post: post,
 			user : checkUserName(req.user),
 			isSaved: isSaved
@@ -83,7 +83,7 @@ router.get('/author/:author', function(req, res){
 	Post.find({author: author})
 		.sort({created: -1})
 		.exec(function(err, posts){
-			res.render('authorView', {
+			res.render('authorview', {
 				author: author,
 				posts: posts,
 				user: checkUserName(req.user)
