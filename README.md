@@ -7,7 +7,7 @@ Version 0.1
 
 Data sources (as of today)
 
-- more than 3000 articles.
+- about 4000 articles.
 - all articles from Bitcoin Magazine.
 - more than 1 year articles from Coin Telegraph.
 - lastest 3 month articles from Coin Desk.
@@ -16,5 +16,7 @@ Data sources (as of today)
 Build notes:
 
 - need Facebook app ID for Facebook login feature.
+
+The app is live : coininfo.herokuapp.com
 
 
