@@ -8,7 +8,7 @@ var passport = require('passport');
 /* GET home page. */
 
 function checkUserName(user) {
-	if (user === undefined) return 'Login'
+	if (user === undefined) return 'Login.OK'
 		else return user.facebook.name;
 };
 
@@ -42,7 +42,7 @@ router.get('/bitcoinprice', function(req, res){
 
 router.get('/searchBox', function(req, res){
 	Post.find({$text:{$search: req.query.query}})
-		.limit(12)
+		.limit(15)
 		.exec(function(err, posts){
 			res.send(posts);
 		})
@@ -51,7 +51,7 @@ router.get('/searchBox', function(req, res){
 router.get('/', function(req, res){
 	Post.find()
 		.sort({created: -1})
-		.limit(20)
+		.limit(25)
 		.exec(function(err, posts){
 			res.render('index', {
 				user : checkUserName(req.user),
@@ -94,7 +94,7 @@ router.get('/author/:author', function(req, res){
 router.get('/bestposts', function(req, res){
 	Post.find()
 		.sort({likeFB: -1})
-		.limit(20)
+		.limit(25)
 		.exec(function(err, posts){
 			res.render('index', {
 				active: 'best',
@@ -109,7 +109,7 @@ router.get('/trending', function(req, res){
 	var maxday = today.setDate(today.getDate()-14);
 	Post.find({"created": {$gt: maxday}})
 		.sort({likeFB:-1})
-		.limit(20)
+		.limit(25)
 		.exec(function(err, posts){
 			res.render('index', {
 				active: 'trending',

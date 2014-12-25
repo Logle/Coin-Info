@@ -43,12 +43,19 @@
             <button type="button" class="btn {% if (active === 'best') %} btn-success {% else %} btn-default {% endif %} btn-md">
               <a href="/bestposts"> Best </a>
             </button>
-            <button type="button" class="btn {% if (active === 'saved') %} btn-success {% else %} btn-default {% endif %} btn-md">
-              <a href="/savedposts"> Saved </a>
-            </button>
+
+            {% if user.substring(0,5) ==='Login' %}
+              <button type="button" class="btn btn-default btn-md" data-toggle='modal' data-target='#loginModal'>
+                 <div class='text-primary'> Saved </div>
+              </button>
+            {% else %}
+               <button type="button" class="btn btn-success btn-md">
+                  <a href="/savedposts"> Saved </a>
+               </button>
+            {% endif %}
 
             <button type="button" class="btn btn-default btn-md" data-toggle='modal' data-target='#loginModal'>
-               <div class='text-primary'>{{user}} </div>
+               <div class='text-primary'>{{user.substring(0,5)}} </div>
             </button>
 
             <div class="modal fade" id='loginModal' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

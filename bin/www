@@ -3,6 +3,7 @@
 var debug = require('debug')('CoinInfo');
 var app = require('../app');
 var data_service = require('../data_service/start');
+
 app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function() {
@@ -11,7 +12,8 @@ var server = app.listen(app.get('port'), function() {
 
  // Scraping data - comment out this function if data mining is not needed.
 
-// data_service.init(1,2);
+var adayinmilisecond = 1000*60*60*18;
+setInterval(data_service.init(1,2), adayinmilisecond) ;
 
 
 

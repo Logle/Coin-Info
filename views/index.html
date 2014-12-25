@@ -6,14 +6,13 @@
 	    <table>
 	    	<thead>
 	    		<tr class='bg-info'>
-	    			<th style="width:30px; text-align:center">#</th>
-	    			<th style="width:140px">Image</th>
-	    			<th style="width:400px">Title</th>
+	    			<th style="width:25px; text-align:center">#</th>
+	    			<th style="width:125px">Image</th>
+	    			<th style="width:420px">Title</th>
 	    			<th style="width:150px">Author</th>
-	    			<th style="width:200px">Date</th>
+	    			<th style="width:180px">Date</th>
 	    			<th style="width:120px">Source</th>
-	    			<th style="width:80px">Share </th>
-	    			<th style="width:40px">Offline reading</th>
+	    			<th style="width:80px">Popular</th>
 	    		<tr>
 				</thead>
 	    	<tbody>
@@ -30,9 +29,6 @@
 	    				<td >{{post.created.toString().substring(0,25)}}</td>
 	    				<td > <a href={{post.sourceURL}}> {{post.sourceString}} </a> </td>
 	    				<td >{{post.likeFB}} <img class='share-heart' src='/images/heart.png'> </td>
-	    				<td >
-
-	    				</td>
 	    			</tr>
 	    			{% endfor %}
 	    	</tbody>
