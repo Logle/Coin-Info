@@ -3,20 +3,35 @@
 var debug = require('debug')('CoinInfo');
 var app = require('../app');
 var data_service = require('../data_service/start');
+var CronJob = require('cron').CronJob;
+
 app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
 });
 
- // Scraping data - comment out this function if data mining is not needed.
+ // Scraping data, update data - all data services
 
-var hourToCollectData = 18;
-var hourToUpdateData = 12;
+var collectNewData = new CronJob({
+	cronTime: '00 00 22 * * *',  // everyday at 10P.M
+	onTick: function(){
+		console.log('start New Data service');
+		datas_ervice.init(1,2);
+	},
+	true, /* Start the job right now */
+	timeZone: "America/New_York"  // timezones allowed http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+});
 
-setInterval(function(){ data_service.init(1,2) }, 1000*60*60*hourToCollectData);
-setInterval(function(){ data_service.update(150) }, 1000*60*58*hourToUpdateData);
-
+var updateNewData = new CronJob({
+	cronTime: '00 00 14 * * *',  // everyday at 2P.M
+	onTick: function(){
+		console.log('start Update Data service');
+		datas_ervice.update(150);
+	},
+	true, /* Start the job right now */
+	timeZone: "America/New_York"  // timezones allowed http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+});
 
 
 

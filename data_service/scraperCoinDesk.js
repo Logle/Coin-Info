@@ -32,6 +32,7 @@ var scraperCoinDesk = (function(){
 					post.title = cheer(this).find('.post-info').find('a').attr('title');
 					post.url = cheer(this).find('.post-info').find('a').attr('href');
 					if (post.title != undefined) postList.push(post);
+					countTotal ++; console.log('CoinDesk: ',countTotal);
 			});
 
 			if (n>1) { collectPostList(n-1, function(){ cb_function() }) }

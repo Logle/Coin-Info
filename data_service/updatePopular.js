@@ -10,7 +10,7 @@ var updatePopular = (function(){
 			.sort({created: -1})
 			.limit(x)
 			.exec(function(err, posts){
-				posts.forEach(function(post){
+				posts.forEach(function(post, index){
 					postPopular.init(post.url, function(value){
 						if (value.likeF != undefined) {
 							post.likeFB = value.likeF;
@@ -19,7 +19,7 @@ var updatePopular = (function(){
 							post.likeTw = value.likeT
 						};
 						post.save();
-						// console.log(post.title);
+						console.log(index);
 					});
 				})
 			});
