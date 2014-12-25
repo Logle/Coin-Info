@@ -2,7 +2,7 @@
 // the issue of broswer not encoding title properly.
 
 var changeDatabase = (function(){
-	var models = require('./models');
+	var models = require('../models');
 	var Post = models.Post;
 
 	var update = function() {
