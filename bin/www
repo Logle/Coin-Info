@@ -13,7 +13,8 @@ var server = app.listen(app.get('port'), function() {
  // Scraping data - comment out this function if data mining is not needed.
 
 var adayinmilisecond = 1000*60*60*18;
-setInterval(data_service.init(1,2), adayinmilisecond) ;
+// setInterval(data_service.init(1,2), adayinmilisecond) ;
+data_service.update(150);
 
 
 
