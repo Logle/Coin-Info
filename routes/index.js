@@ -8,7 +8,7 @@ var passport = require('passport');
 /* GET home page. */
 
 function checkUserName(user) {
-	if (user === undefined) return 'Login.OK'
+	if (user === undefined) return 'Login'
 		else return user.facebook.name;
 };
 
