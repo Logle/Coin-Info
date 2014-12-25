@@ -3,7 +3,6 @@
 var debug = require('debug')('CoinInfo');
 var app = require('../app');
 var data_service = require('../data_service/start');
-
 app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function() {
@@ -11,11 +10,21 @@ var server = app.listen(app.get('port'), function() {
 });
 
  // Scraping data - comment out this function if data mining is not needed.
-var hourToCollectData = 18;
-var hourToUpdatePopular = 12;
 
-setInterval(data_service.init(1,2), 1000*60*60*hourToCollectData) ;
-setInterval(data_service.update(150), 1000*60*60*hourToUpdatePopular) ;
+var hourToCollectData = 18;
+var hourToUpdateData = 12;
+
+// setInterval(function(){ data_service.init(1,2) }, 1000*60*60*hourToCollectData);
+// setInterval(function(){ data_service.update(150) }, 1000*60*60*hourToUpdateData);
+
+data_service.init(1,2);
+
+
+
+
+
+
+
 
 
 

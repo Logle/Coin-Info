@@ -1,10 +1,12 @@
+// Bitcoin magazine was closed in November
+
 var scraperBitcoinMagazine = (function(){
 
 	var http = require('http');
 	var cheerio = require('cheerio');
 	var request = require('request');
-	var fs = require('fs');
 	var async = require('async');
+	var postPopular = require('./postPopular');
 	var models = require('../models')
 	var postList = [];
 	var countTotal = 0;
@@ -53,37 +55,18 @@ var scraperBitcoinMagazine = (function(){
 
 		var callback = function(err, res, body) {
 			var cheer = cheerio.load(body);
-			var postURLencoded = encodeURIComponent(postURL);
 			var content = cheer('.post_content').text();
 			var created = cheer('.post_date').attr('title');
 			var image = cheer('.content').find('img').attr('src');
-
-			var fbURL = 'https://graph.facebook.com/fql?q=SELECT+total_count+FROM+link_stat+WHERE+url%3D%22' + postURLencoded +'%22';
-			var twitURL = 'https://cdn.api.twitter.com/1/urls/count.json?url=' + postURLencoded ;
-
-			async.parallel({
-					fb: function(callback){
-						request(fbURL, function(err, res, fbBody){
-							if (JSON.parse(fbBody)['data'] != undefined){
-								callback(null, JSON.parse(fbBody)['data'][0]['total_count']);
-							}
-						});
-					},
-					twitter: function(callback){
-						request(twitURL, function(err, res, tBody){
-							callback(null, JSON.parse(tBody)['count']);
-						});
-					}
-				},
-				function(err, results){
-						cb_function({
-							 content: content,
-							 likeF: results.fb,
-							 likeT: results.twitter,
-							 created: created,
-							 image: image
-						});
+			postPopular.init(postURL, function(results){
+				cb_function({
+					 content: content,
+					 likeF: results.fb,
+					 likeT: results.twitter,
+					 created: created,
+					 image: image
 				});
+			})
 		};
 
 		request(options, callback)
