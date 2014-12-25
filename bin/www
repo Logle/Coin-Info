@@ -19,7 +19,7 @@ var collectNewData = new CronJob({
 		console.log('start New Data service');
 		datas_ervice.init(1,2);
 	},
-	true, /* Start the job right now */
+	start: true,
 	timeZone: "America/New_York"  // timezones allowed http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 });
 
@@ -29,7 +29,7 @@ var updateNewData = new CronJob({
 		console.log('start Update Data service');
 		datas_ervice.update(150);
 	},
-	true, /* Start the job right now */
+	start: true,
 	timeZone: "America/New_York"  // timezones allowed http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 });
 
