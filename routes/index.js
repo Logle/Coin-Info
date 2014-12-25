@@ -34,7 +34,8 @@ router.get('/bitcoinprice', function(req, res){
 		url : 'https://www.bitstamp.net/api/ticker/'
 	};
 	var callback = function(err, respond, body){
-		res.send(JSON.parse(body));
+		if (err) { res.send({last: 'na'})}
+			else { res.send(JSON.parse(body)) }
 	};
 
 	request(option, callback);

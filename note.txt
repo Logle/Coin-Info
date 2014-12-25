@@ -1,3 +1,9 @@
+Log: 12/24 notes
+
+1. check database source: development at local host and production at MongoLab
+
+****************************************************
+
 Log: 12/23 use heroku: config to find mongolab URI you want to connect the app to that database.
 
 to dump data from local host mongodb:

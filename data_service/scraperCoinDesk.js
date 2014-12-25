@@ -89,7 +89,7 @@ var scraperCoinDesk = (function(){
 						'likeTw' : value.likeT
 					});
 			 	newPost.save();
-			 	countTotal ++; console.log(countTotal, post.created);
+			 	countTotal ++; // console.log(countTotal, post.created);
 			});
 		});
 	};

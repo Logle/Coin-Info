@@ -19,7 +19,7 @@ var updatePopular = (function(){
 							post.likeTw = value.likeT
 						};
 						post.save();
-						console.log(post.title);
+						// console.log(post.title);
 					});
 				})
 			});

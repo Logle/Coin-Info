@@ -89,7 +89,7 @@ var scraperCoinTelegraph = (function(){
 						'likeTw' : value.likeT
 					});
 				newPost.save();
-				countTotal ++; console.log(countTotal);
+				countTotal ++; // console.log(countTotal);
 			})
 		});
 	};
