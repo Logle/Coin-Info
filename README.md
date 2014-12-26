@@ -16,6 +16,6 @@ Build notes:
 
 - need Facebook app ID for Facebook login feature.
 
-The app is live [coininfo](http:\\coininfo.herokuapp.com)
+The app is live [coininfo](http://coininfo.herokuapp.com/)
 
 
