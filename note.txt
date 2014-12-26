@@ -2,7 +2,7 @@ Log: 12/25
 
 Parameters:
 1. new data everyday cointeleGraph:30; coindesk: 20
-2. update popular every 12 hour - last 125 posts
+2. update popular every 12 hour - last 150 posts
 3. update post Rank every 12 hour - top 50 FB like in the last 2 weeks
 
 Database indexes: created, url(unique), likeFB, title;

@@ -75,8 +75,11 @@ router.get('/post/:title', function(req, res){
 	});
 });
 
+// using encodeURIComponent to encode title before send to search to remove the issue of
+// inconsistenncy of browser URI encoding
+
 router.post('/searchPost', function(req, res){
-	res.redirect('post/' + req.body.title);
+	res.redirect('post/' + encodeURIComponent(req.body.title));
 })
 
 router.get('/author/:author', function(req, res){

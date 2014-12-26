@@ -14,7 +14,7 @@ var server = app.listen(app.get('port'), function() {
  // Scraping data, update data - all data services
 
 var collectNewData = new CronJob({
-	cronTime: '00 15 22 * * *',  // everyday at 10.15 P.M
+	cronTime: '00 00 12 * * *',  // everyday at 12 A.M
 	onTick: function(){
 		console.log('start New Data service');
 		data_service.init(1,2);
@@ -27,7 +27,7 @@ var updateNewData = new CronJob({
 	cronTime: '00 00 2,14 * * *',  // everyday at 2A.M and 2P.M
 	onTick: function(){
 		console.log('start Data Popular service');
-		data_service.updatePopular(125);
+		data_service.updatePopular(150);
 	},
 	start: true,
 	timeZone: "America/New_York"
