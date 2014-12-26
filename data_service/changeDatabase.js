@@ -16,6 +16,8 @@ var changeDatabase = (function(){
 			});
 	};
 
+// note: mongoLab update is much slower than local database.
+
 	var addPostRank = function(){
 		Post.find()
 			.exec(function(err, posts){

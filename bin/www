@@ -3,6 +3,7 @@
 var debug = require('debug')('CoinInfo');
 var app = require('../app');
 var data_service = require('../data_service/start');
+var change = require('../data_service/changeDatabase');
 var CronJob = require('cron').CronJob;
 
 app.set('port', process.env.PORT || 3000);
@@ -26,7 +27,7 @@ var collectNewData = new CronJob({
 var updateNewData = new CronJob({
 	cronTime: '00 00 2,14 * * *',  // everyday at 2A.M and 2P.M
 	onTick: function(){
-		console.log('start Update Data Popular service');
+		console.log('start Data Popular service');
 		data_service.updatePopular(125);
 	},
 	start: true,
@@ -34,14 +35,17 @@ var updateNewData = new CronJob({
 });
 
 var updateNewData2 = new CronJob({
-	cronTime: '00 10 2,14 * * *',  // everyday at 2A.M and 2P.M
+	cronTime: '00 10 2,14 * * *',
 	onTick: function(){
-		console.log('start Update Data PostRank service');
+		console.log('start Data PostRank service');
 		data_service.updatePostRank(50);
 	},
 	start: true,
 	timeZone: "America/New_York"  // timezones allowed http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 });
+
+
+
 
 
 

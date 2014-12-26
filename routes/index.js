@@ -115,8 +115,8 @@ router.get('/trending', function(req, res){
 			var status = [];
 			posts.forEach(function(post, index){
 				var n = post.rank.length;
-				if (n===1) {
-					status[index+1] = 'glyphicon-arrow-right'
+				if (n<2) {
+					status[index+1] = 'glyphicon-arrow-up'
 				} else if (post.rank[n-1] < post.rank[n-2]) {
 					status[index+1] = 'glyphicon-arrow-up'
 				} else if (post.rank[n-1] > post.rank[n-2]) {
