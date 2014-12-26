@@ -3,7 +3,6 @@
 var debug = require('debug')('CoinInfo');
 var app = require('../app');
 var data_service = require('../data_service/start');
-var change = require('../data_service/changeDatabase');
 var CronJob = require('cron').CronJob;
 
 app.set('port', process.env.PORT || 3000);
@@ -31,7 +30,7 @@ var updateNewData = new CronJob({
 		data_service.updatePopular(125);
 	},
 	start: true,
-	timeZone: "America/New_York"  // timezones allowed http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+	timeZone: "America/New_York"
 });
 
 var updateNewData2 = new CronJob({
@@ -41,7 +40,7 @@ var updateNewData2 = new CronJob({
 		data_service.updatePostRank(50);
 	},
 	start: true,
-	timeZone: "America/New_York"  // timezones allowed http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+	timeZone: "America/New_York"
 });
 
 

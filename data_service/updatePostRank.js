@@ -14,6 +14,7 @@ var updatePopular = (function(){
 			posts.forEach(function(post, index){
 				post.rank.push(index+1);
 				post.save();
+				console.log('PostRank',index);
 			})
 		});
 	};
