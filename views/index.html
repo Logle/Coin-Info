@@ -28,7 +28,13 @@
 	    				</td>
 	    				<td >{{post.created.toString().substring(0,25)}}</td>
 	    				<td > <a href={{post.sourceURL}}> {{post.sourceString}} </a> </td>
-	    				<td >{{post.likeFB}} <img class='share-heart' src='/images/heart.png'> </td>
+	    				<td >
+	    					{% if (active==='trending') %}
+	    						<span class="glyphicon {{status[loop.index]}}" aria-hidden="true"></span>
+	    					{% endif %}
+	    					<span> {{post.likeFB}} </span>
+	    					<img class='share-heart' src='/images/heart.png'>
+							</td>
 	    			</tr>
 	    			{% endfor %}
 	    	</tbody>

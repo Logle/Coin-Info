@@ -112,8 +112,22 @@ router.get('/trending', function(req, res){
 		.sort({likeFB:-1})
 		.limit(25)
 		.exec(function(err, posts){
+			posts.forEach(function(post, index){
+				console.log(post.rank);
+				var n = post.rank.length;
+				if (n===1) {
+					status[index+1] = 'glyphicon-arrow-right'
+				} else if (post.rank[n-1] < post.rank[n-2]) {
+					status[index+1] = 'glyphicon-arrow-up'
+				} else if (post.rank[n-1] > post.rank[n-2]) {
+					status[index+1] = 'glyphicon-arrow-down'
+				} else {
+					status[index+1] = 'glyphicon-arrow-right'
+				};
+			});
 			res.render('index', {
 				active: 'trending',
+				status: status,
 				posts: cleanData(posts),
 				user : checkUserName(req.user)
 			});
