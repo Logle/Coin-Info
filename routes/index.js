@@ -112,8 +112,8 @@ router.get('/trending', function(req, res){
 		.sort({likeFB:-1})
 		.limit(25)
 		.exec(function(err, posts){
+			var status = [];
 			posts.forEach(function(post, index){
-				console.log(post.rank);
 				var n = post.rank.length;
 				if (n===1) {
 					status[index+1] = 'glyphicon-arrow-right'
