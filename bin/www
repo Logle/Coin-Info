@@ -27,11 +27,12 @@ var updateNewData = new CronJob({
 	cronTime: '00 00 2,14 * * *',  // everyday at 2A.M and 2P.M
 	onTick: function(){
 		console.log('start Update Data service');
-		datas_service.update(150);
+		data_service.update(125);
 	},
 	start: true,
 	timeZone: "America/New_York"  // timezones allowed http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 });
+
 
 
 

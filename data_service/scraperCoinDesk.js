@@ -60,8 +60,8 @@ var scraperCoinDesk = (function(){
 			postPopular.init(postURL, function(results){
 				cb_function({
 					content: content,
-					likeF: results.fb,
-					likeT: results.twitter,
+					likeF: results.likeF,
+					likeT: results.likeT,
 				});
 			});
 		};
