@@ -110,7 +110,7 @@ router.get('/bestposts', function(req, res){
 
 router.get('/trending', function(req, res){
 	var today = new Date();
-	var maxday = today.setDate(today.getDate()-14);
+	var maxday = today.setDate(today.getDate()-15);
 	Post.find({"created": {$gt: maxday}})
 		.sort({likeFB:-1})
 		.limit(25)
@@ -118,6 +118,7 @@ router.get('/trending', function(req, res){
 			var status = [];
 			posts.forEach(function(post, index){
 				var n = post.rank.length;
+				console.log(index+1, post.rank);
 				if (n<2) {
 					status[index+1] = 'glyphicon-arrow-up'
 				} else if (post.rank[n-1] < post.rank[n-2]) {
