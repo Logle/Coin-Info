@@ -11,11 +11,18 @@ Data sources (as of today)
 - all articles from Bitcoin Magazine.
 - more than 1 year articles from Coin Telegraph.
 - lastest 3 month articles from Coin Desk.
+<<<<<<< HEAD
 - automatic database update daily.
+=======
+>>>>>>> FETCH_HEAD
 
 Build notes:
 
 - need Facebook app ID for Facebook login feature.
 
 The app is live [coininfo](http://coininfo.herokuapp.com/)
+<<<<<<< HEAD
+=======
+
+>>>>>>> FETCH_HEAD
 
