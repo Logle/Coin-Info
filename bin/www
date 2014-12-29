@@ -27,7 +27,7 @@ var updateNewData1 = new CronJob({
 	cronTime: '00 00 13,23 * * *',  // everyday at  1p.m and 11p.m
 	onTick: function(){
 		console.log('start Data Popular service');
-		data_service.updatePopular(150);
+		data_service.updatePopular(100);
 	},
 	start: true,
 	timeZone: "America/New_York"
@@ -37,11 +37,15 @@ var updateNewData2 = new CronJob({
 	cronTime: '00 30 13,23 * * *',
 	onTick: function(){
 		console.log('start Data PostRank service');
-		data_service.updatePostRank(50);
+		data_service.updatePostRank(25);
 	},
 	start: true,
 	timeZone: "America/New_York"
 });
+
+data_service.updatePostRank(25);
+
+
 
 
 
