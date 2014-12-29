@@ -37,13 +37,12 @@ var updateNewData2 = new CronJob({
 	cronTime: '00 30 13,23 * * *',
 	onTick: function(){
 		console.log('start Data PostRank service');
-		data_service.updatePostRank(25);
+		data_service.updatePostRank(50);
 	},
 	start: true,
 	timeZone: "America/New_York"
 });
 
-data_service.updatePostRank(25);
 
 
 
