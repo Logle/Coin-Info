@@ -24,6 +24,7 @@ var collectNewData = new CronJob({
 });
 
 var updateNewData = new CronJob({
+
 	cronTime: '00 30 13,22 * * *',  // everyday at  1.30p.m and 10p.m
 	onTick: function(){
 		console.log('start Data Popular service');
