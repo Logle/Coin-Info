@@ -23,9 +23,8 @@ var collectNewData = new CronJob({
 	timeZone: "America/New_York"  // timezones allowed http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 });
 
-var updateNewData = new CronJob({
-
-	cronTime: '00 30 13,22 * * *',  // everyday at  1.30p.m and 10p.m
+var updateNewData1 = new CronJob({
+	cronTime: '00 00 13,23 * * *',  // everyday at  1p.m and 11p.m
 	onTick: function(){
 		console.log('start Data Popular service');
 		data_service.updatePopular(150);
@@ -35,7 +34,7 @@ var updateNewData = new CronJob({
 });
 
 var updateNewData2 = new CronJob({
-	cronTime: '00 00 14,23 * * *',
+	cronTime: '00 30 13,23 * * *',
 	onTick: function(){
 		console.log('start Data PostRank service');
 		data_service.updatePostRank(50);
