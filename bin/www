@@ -24,7 +24,7 @@ var collectNewData = new CronJob({
 });
 
 var updateNewData = new CronJob({
-	cronTime: '00 00 14,22 * * *',  // everyday at  2p.m and 10p.m
+	cronTime: '00 30 13,22 * * *',  // everyday at  1.30p.m and 10p.m
 	onTick: function(){
 		console.log('start Data Popular service');
 		data_service.updatePopular(150);
@@ -34,7 +34,7 @@ var updateNewData = new CronJob({
 });
 
 var updateNewData2 = new CronJob({
-	cronTime: '00 30 14,22 * * *',
+	cronTime: '00 00 14,23 * * *',
 	onTick: function(){
 		console.log('start Data PostRank service');
 		data_service.updatePostRank(50);
