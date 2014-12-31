@@ -2,7 +2,6 @@
 
 var mongoose = require('mongoose');
 // production database in MongoLab
- mongoose.connect('mongodb://heroku_app32792295:q06dlscp9gehtvg22c16tbt3in@ds049150.mongolab.com:49150/heroku_app32792295');
 // local database
 // mongoose.connect('mongodb://localhost/coin_data')
 var db = mongoose.connection;
