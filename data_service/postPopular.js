@@ -12,16 +12,22 @@ var postPopular = (function(postURL, cb_function){
 			async.parallel({
 					fb: function(callback){
 						request(fbURL, function(err, res, fbBody){
-							if (JSON.parse(fbBody)['data'] != undefined){
+							if (err) { callback(null, 0); }
+							else if (JSON.parse(fbBody)['data'] != undefined){
 								callback(null, JSON.parse(fbBody)['data'][0]['total_count']);
+							} else {
+								callback(null, 0);
 							};
 						});
 					},
 					twitter: function(callback){
 						request(twitURL, function(err, res, tBody){
-							if (JSON.parse(tBody) != undefined) {
+							if (err) { callback(null, 0); }
+							else if (JSON.parse(tBody)['count'] != undefined) {
 								callback(null, JSON.parse(tBody)['count']);
-							};
+							} else {
+								callback(null, 0);
+							}
 						});
 					}
 				},
