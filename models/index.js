@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 // production database in MongoLab
 // local database
-// mongoose.connect('mongodb://localhost/coin_data')
+mongoose.connect('mongodb://localhost/coin_data')
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
