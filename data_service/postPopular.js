@@ -14,12 +14,14 @@ var postPopular = (function(postURL, cb_function){
 						request(fbURL, function(err, res, fbBody){
 							if (JSON.parse(fbBody)['data'] != undefined){
 								callback(null, JSON.parse(fbBody)['data'][0]['total_count']);
-							}
+							};
 						});
 					},
 					twitter: function(callback){
 						request(twitURL, function(err, res, tBody){
-							callback(null, JSON.parse(tBody)['count']);
+							if (JSON.parse(tBody) != undefined) {
+								callback(null, JSON.parse(tBody)['count']);
+							};
 						});
 					}
 				},
