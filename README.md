@@ -1,4 +1,4 @@
-Infomation Hub about digital currencies
+Information Hub about digital currencies
 =======================================
 Locate, store contents from CoinDesk, Cointelegraph, Bitcoin Magazine and re-package them in a new front-end. Provide some niffty features such as an install search across multiple sources, save favorite posts etc. A popularity index for posts pulling information from  Facebook and Twitter share counts.
 
